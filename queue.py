@@ -10,6 +10,11 @@
 # Q.dequeue() - remove and return the first element from queue if its not empty
 
 
+class Empty(Exception):
+    """Error attempting to access an element from an empty container"""
+    pass
+
+
 class Queue:
     DEFAULT_CAPACITY = 10
 
@@ -30,7 +35,7 @@ class Queue:
     def dequeue(self):
         """remove and return the first element (head)"""
         if self.is_empty():
-            raise IndexError('queue is empty')
+            raise Empty('queue is empty')
         answer = self._data[self._front]
         self._data[self._front] = None  # optional
         self._front = (self._front + 1) % len(self._data)
@@ -59,5 +64,5 @@ class Queue:
 
     def first(self):
         if self.is_empty():
-            raise IndexError('queue is empty')
+            raise Empty('queue is empty')
         return self._data[self._front]

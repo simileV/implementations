@@ -7,6 +7,11 @@
 # len(S) - use __len__ to return the number of elements in the stack
 
 
+class Empty(Exception):
+    """Error attempting to access an element from an empty container"""
+    pass
+
+
 class Stack:
     def __init__(self):
         self._data = [] # create an empty stack
@@ -16,7 +21,7 @@ class Stack:
 
     def pop(self):
         if self.is_empty():
-            raise IndexError('stack is empty')
+            raise Empty('stack is empty')
 
         return self._data.pop() # remove last elem from list
 
@@ -29,5 +34,5 @@ class Stack:
 
     def top(self):
         if self.is_empty():
-            raise IndexError('stack is empty')
+            raise Empty('stack is empty')
         return self._data[-1]
