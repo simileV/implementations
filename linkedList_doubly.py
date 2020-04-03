@@ -41,3 +41,6 @@ class LinkedList_doubly:
         element = node._element
         node._prev = node._next = node._element = None
         return element
+
+    def is_empty(self):
+        return self._size == 0
