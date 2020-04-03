@@ -1,3 +1,9 @@
+# can insert a node at either end and can delete a node at the front
+# cannot efficiently delete a node from the tail
+# cannot delete a node from an interior position of the list if only given ref to that node because you dont store
+# the preceding node, only the next one
+
+
 class Empty(Exception):
     """Error attempting to access an element from an empty container"""
     pass

@@ -1,3 +1,6 @@
+"""O(1) (constant)"""
+
+
 class Empty(Exception):
     """Error attempting to access an element from an empty container"""
     pass
@@ -49,4 +52,3 @@ class LinkedQueue:
         if self.is_empty():
             raise Empty('queue is empty')
         return self._head._element
-    
