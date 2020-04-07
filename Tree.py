@@ -1,3 +1,6 @@
+from linkedList_queue import LinkedQueue
+
+
 class Empty(Exception):
     """Error attempting to access an element from an empty container"""
     pass
@@ -109,6 +112,40 @@ class Tree:
         """return true if pos p represents the root of the tree"""
         return len(self) == 0
 
+    # PREORDER TRAVERSSAL
+    def preorder(self):
+        if not self.is_empty():
+            for p in self._subtree_preorder(self.root()):
+                yield p
+
+    def _subtree_preorder(self, p):
+        """gen a preorder iter of pos in subtree rooted at p"""
+        yield p
+        for c in self.children(p):
+            for other in self._subtree_preorder(c):
+                yield other
+
+    #INORDER IN BINARY TREE
+
+    # POSTORDER TRAVERSAL
+    def postorder(self):
+        if not self.is_empty():
+            for p in self._subtree_postorder(self.root()):
+                yield p
+
+    def _subtree_postorder(self, p):
+        """gen a postorder iter of pos in subtree rooted at p"""
+        yield p
+        for c in self.children(p):
+            for other in self._subtree_postorder(c):
+                yield other
+        yield p
+
+    def breadthfirst(self):
+        if not self.is_empty():
+            fringe = LinkedQueue()
+            fringe.enqueue(self.root())
+
 
 class BinaryTree(Tree):
     #abstract methods
@@ -138,6 +175,26 @@ class BinaryTree(Tree):
             yield self.left(p)
         if self.right(p) is not None:
             yield self.right(p)
+
+    # INORDER TRAVERSAL
+    def inorder(self):
+        if not self.is_empty():
+            for p in self._subtree_inorder(self.root()):
+                yield p
+
+    def _subtree_inorder(self, p):
+        """gen a postorder iter of pos in subtree rooted at p"""
+        yield p
+        if self.left(p) is not None:  # if left child exists, traverse its subtree
+            for other in self._subtree_inorder(self.left(p)):
+                yield other
+        yield p
+        if self.right(p) is not None:  # if right child exists, traverse its subtree
+            for other in self._subtree_inorder(self.right(p)):
+                yield other
+
+    def positions(self):
+        return self.inorder()  # make inorder sort the default for BST
 
 
 class LinkedBinaryTree(BinaryTree):
@@ -284,3 +341,9 @@ class LinkedBinaryTree(BinaryTree):
             node._left = t2._root
             t2._root = None # set t2 root instance to empty
             t2._size = 0
+
+"""Tree Traversals"""
+# Preorder
+
+# def preorder(self):
+#
