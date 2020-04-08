@@ -342,8 +342,3 @@ class LinkedBinaryTree(BinaryTree):
             t2._root = None # set t2 root instance to empty
             t2._size = 0
 
-"""Tree Traversals"""
-# Preorder
-
-# def preorder(self):
-#
