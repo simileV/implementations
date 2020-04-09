@@ -205,7 +205,7 @@ class LinkedBinaryTree(BinaryTree):
             self._left = left
             self._right = right
 
-    class Position(BinaryTree.Position)
+    class Position(BinaryTree.Position):
         """an abstraction representing the location of a single element"""
 
         def __init__(self, container, node):
@@ -221,7 +221,7 @@ class LinkedBinaryTree(BinaryTree):
 
     def _validate(self, p):
         """return associated node, if pos is valid"""
-        if not isinstance(p, self.Position)
+        if not isinstance(p, self.Position):
             raise TypeError('p must be proper Position type')
         if p._container is not self:
             raise ValueError('p does not belong to this container')
