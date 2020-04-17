@@ -9,6 +9,9 @@ use the proxy or the real subject without any code change, so both must have the
 same interface. Logging and controlling access to the real subject are some of
 the proxy pattern usages.
 
+you want to add some additional behaviors to an object of some existing class
+without changing the client code.
+
 """
 
 class Subject:
