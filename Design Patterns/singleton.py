@@ -1,5 +1,12 @@
 """A way to provide one and only one object of a particular type. To accomplish this,
-you must take control of object creation out of the hands of the programmer."""
+you must take control of object creation out of the hands of the programmer.
+
+when you create a class you can only instantiate it once, can only have one object based on
+a particular class. The next time you try to create it, for instance only an attribute
+for the name would change, and not create a new object.
+"""
+
+
 
 class OnlyOne(object):
     class __OnlyOne:

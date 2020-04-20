@@ -7,10 +7,12 @@ A real life example could be the case of a card reader, which acts as an adapter
  card and a laptop. You plug in the memory card into the card reader and the card reader into
  the laptop so that memory card can be read via the laptop.
 
-The adapter design pattern helps to work classes together. It converts the interface of a class into another interface based on requirement
+a bridge between two incompatible interfaces.
+The adapter design pattern helps to work classes together. It converts the interface
+of a class into another interface based on requirement
 
 Two types - Object Adapter Pattern and Class Adapter Pattern
-
+adapt one interface to another using a white list
 """
 
 class Target():
